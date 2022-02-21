@@ -5,8 +5,8 @@ static const unsigned int borderpx = 1; /* border pixel of windows */
 static const unsigned int snap = 32;    /* snap pixel */
 static const int showbar = 1;           /* 0 means no bar */
 static const int topbar = 1;            /* 0 means bottom bar */
-static const char *fonts[] = {"Terminus:size=10", "FontAwesome:size=11"};
-static const char dmenufont[] = "Terminus:size=10";
+static const char *fonts[] = {"Terminus:size=12", "FontAwesome:size=12"};
+static const char dmenufont[] = "Terminus:size=12";
 static const char col_gray1[] = "#222222";
 static const char col_gray2[] = "#444444";
 static const char col_gray3[] = "#bbbbbb";
@@ -19,7 +19,7 @@ static const char *colors[][3] = {
 };
 
 /* tagging */
-static const char *tags[] = {"", "", "", "", "", "", "7", "8", "9"};
+static const char *tags[] = {"", "", "", "", "", "", "", "8", "9"};
 
 static const Rule rules[] = {
     /* xprop(1):
@@ -28,9 +28,11 @@ static const Rule rules[] = {
      */
     /* class      instance    title       tags mask     isfloating   monitor */
     {"cool-retro-term", NULL, NULL, 1, -1},
-    {"brave", NULL, NULL, 2, 1, -1},
-    {"nautilis", NULL, NULL, 3, 0, -1},
-    {"mail", NULL, NULL, 4, 0, -1},
+    {"Firefox", NULL, NULL, 1 << 8, 1, -1},
+    {"Brave-browser", NULL, NULL, 1 << 1, 0, -1},
+    {"Org.gnome.Nautilus", NULL, NULL, 1 << 2, 0, -1},
+    {"mail", NULL, NULL, 1 << 4, 0, -1},
+    {"figma", NULL, NULL, 1 << 5, 0, -1},
 };
 
 /* layout(s) */
@@ -43,8 +45,8 @@ static const int lockfullscreen =
 
 static const Layout layouts[] = {
     /* symbol     arrange function */
-    {"[]=", tile}, /* first entry is default */
-    {"><>", NULL}, /* no layout function means floating behavior */
+    {"", tile}, /* first entry is default */
+    {"", NULL}, /* no layout function means floating behavior */
     {"[M]", monocle},
 };
 
@@ -71,6 +73,7 @@ static const char *dmenucmd[] = {
 static const char *termcmd[] = {"cool-retro-term", NULL};
 static const char *browsercmd[] = {"brave", NULL};
 static const char *filemanagercmd[] = {"nautilis", NULL};
+static const char *notioncmd[] = {"notion", NULL};
 
 static Key keys[] = {
     /* modifier                     key        function        argument */
@@ -78,6 +81,7 @@ static Key keys[] = {
     {MODKEY | ShiftMask, XK_Return, spawn, {.v = termcmd}},
     {MODKEY, XK_b, spawn, {.v = browsercmd}},
     {MODKEY, XK_f, spawn, {.v = filemanagercmd}},
+    {MODKEY, XK_n, spawn, {.v = notioncmd}},
     {MODKEY | ShiftMask, XK_b, togglebar, {0}},
     {MODKEY, XK_j, focusstack, {.i = +1}},
     {MODKEY, XK_k, focusstack, {.i = -1}},
