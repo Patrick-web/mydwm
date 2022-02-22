@@ -5,13 +5,13 @@ static const unsigned int borderpx = 1; /* border pixel of windows */
 static const unsigned int snap = 32;    /* snap pixel */
 static const int showbar = 1;           /* 0 means no bar */
 static const int topbar = 1;            /* 0 means bottom bar */
-static const char *fonts[] = {"Terminus:size=10"};
-static const char dmenufont[] = "Terminus:size=10";
+static const char *fonts[] = {"Terminus:size=11"};
+static const char dmenufont[] = "Terminus:size=11";
 static const char col_gray1[] = "#000000";
 static const char col_gray2[] = "#444444";
 static const char col_gray3[] = "#bbbbbb";
 static const char col_gray4[] = "#eeeeee";
-static const char col_cyan[] = "#ff006e";
+static const char col_cyan[] = "#00182e";
 static const char *colors[][3] = {
     /*               fg         bg         border   */
     [SchemeNorm] = {col_gray3, col_gray1, col_gray2},
@@ -27,12 +27,15 @@ static const Rule rules[] = {
      *	WM_NAME(STRING) = title
      */
     /* class      instance    title       tags mask     isfloating   monitor */
-    {"cool-retro-term", NULL, NULL, 1, -1},
+    {"Gpick", NULL, NULL, 0, 1, -1},
+    {"cool-retro-term", NULL, NULL, 0, 0, -1},
     {"Firefox", NULL, NULL, 1 << 8, 1, -1},
     {"Brave-browser", NULL, NULL, 1 << 1, 0, -1},
     {"Org.gnome.Nautilus", NULL, NULL, 1 << 2, 0, -1},
     {"mail", NULL, NULL, 1 << 4, 0, -1},
     {"figma", NULL, NULL, 1 << 5, 0, -1},
+    {"notion-oneworkspaceeveryteam-nativefier-5f9ce2", NULL, NULL, 1 << 6, 0,
+     -1},
 };
 
 /* layout(s) */
@@ -67,9 +70,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] =
     "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = {
-    "dmenu_run", "-m",      dmenumon, "-fn",    dmenufont, "-nb",     col_gray1,
-    "-nf",       col_gray3, "-sb",    col_cyan, "-sf",     col_gray4, NULL};
+static const char *dmenucmd[] = {"dmenu_run", "-m", dmenumon, "-c", "-l", "10"};
 static const char *termcmd[] = {"cool-retro-term", NULL};
 static const char *browsercmd[] = {"brave", NULL};
 static const char *filemanagercmd[] = {"nautilis", NULL};
