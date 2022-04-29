@@ -28,7 +28,7 @@ static const Rule rules[] = {
      */
     /* class      instance    title       tags mask     isfloating   monitor */
     {"Gpick", NULL, NULL, 0, 1, -1},
-    {"cool-retro-term", NULL, NULL, 0, 0, -1},
+    {"tilix", NULL, NULL, 0, 0, -1},
     {"Firefox", NULL, NULL, 1 << 8, 1, -1},
     {"Brave-browser", NULL, NULL, 1 << 1, 0, -1},
     {"Org.gnome.Nautilus", NULL, NULL, 1 << 2, 0, -1},
@@ -71,7 +71,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] =
     "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = {"dmenu_run", "-m", dmenumon, "-c", "-l", "10"};
-static const char *termcmd[] = {"cool-retro-term", NULL};
+static const char *termcmd[] = {"tilix", NULL};
 static const char *browsercmd[] = {"brave", NULL};
 static const char *filemanagercmd[] = {"nautilis", NULL};
 static const char *notioncmd[] = {"notion", NULL};
