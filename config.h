@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx = 1; /* border pixel of windows */
+static const unsigned int borderpx = 2; /* border pixel of windows */
 static const unsigned int snap = 32;    /* snap pixel */
 static const int showbar = 1;           /* 0 means no bar */
 static const int topbar = 1;            /* 0 means bottom bar */
@@ -34,8 +34,6 @@ static const Rule rules[] = {
     {"Org.gnome.Nautilus", NULL, NULL, 1 << 2, 0, -1},
     {"mail", NULL, NULL, 1 << 4, 0, -1},
     {"figma", NULL, NULL, 1 << 5, 0, -1},
-    {"notion-oneworkspaceeveryteam-nativefier-5f9ce2", NULL, NULL, 1 << 6, 0,
-     -1},
 };
 
 /* layout(s) */
@@ -48,8 +46,8 @@ static const int lockfullscreen =
 
 static const Layout layouts[] = {
     /* symbol     arrange function */
-    {"", tile}, /* first entry is default */
     {"", NULL}, /* no layout function means floating behavior */
+    {"", tile}, /* first entry is default */
     {"[M]", monocle},
 };
 
@@ -73,16 +71,16 @@ static char dmenumon[2] =
 static const char *dmenucmd[] = {"dmenu_run", "-m", dmenumon, "-c", "-l", "10"};
 static const char *termcmd[] = {"tilix", NULL};
 static const char *browsercmd[] = {"brave", NULL};
-static const char *filemanagercmd[] = {"nautilis", NULL};
-static const char *notioncmd[] = {"notion", NULL};
+static const char *firefoxcmd[] = {"firefox", NULL};
+static const char *filemanagercmd[] = {"nautilus", NULL};
 
 static Key keys[] = {
     /* modifier                     key        function        argument */
     {MODKEY, XK_p, spawn, {.v = dmenucmd}},
     {MODKEY | ShiftMask, XK_Return, spawn, {.v = termcmd}},
     {MODKEY, XK_b, spawn, {.v = browsercmd}},
-    {MODKEY, XK_f, spawn, {.v = filemanagercmd}},
-    {MODKEY, XK_n, spawn, {.v = notioncmd}},
+    {MODKEY, XK_f, spawn, {.v = firefoxcmd}},
+    {MODKEY, XK_e, spawn, {.v = filemanagercmd}},
     {MODKEY | ShiftMask, XK_b, togglebar, {0}},
     {MODKEY, XK_j, focusstack, {.i = +1}},
     {MODKEY, XK_k, focusstack, {.i = -1}},
